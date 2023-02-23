@@ -6,4 +6,4 @@ FILES=ft_*.c
 all:
 	cc -c $(ARGS) $(FILES)
 clean:
-	rm *.o *.out *.a
+	rm -f *.o *.out *.a
