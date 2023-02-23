@@ -6,9 +6,11 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:14:55 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 16:18:48 by akernot          ###   ########.fr       */
+/*   Updated: 2023/02/23 16:33:53 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+size_t	ft_strlen(const char *s);
 
 char	*ft_strcat(char *dst, const char *src)
 {
