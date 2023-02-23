@@ -6,13 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:11:11 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 15:12:23 by akernot          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:14:58 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-size_t	strlen(const char *s)
+size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 

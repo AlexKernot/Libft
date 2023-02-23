@@ -6,13 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:46:13 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 14:53:31 by akernot          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:16:11 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*memchr(const void *s, int c, size_t n)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
 	unsigned char	to_find;
 	unsigned char	*array;

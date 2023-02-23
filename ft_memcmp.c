@@ -6,13 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:56:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 15:05:10 by akernot          ###   ########.fr       */
+/*   Updated: 2023/02/23 15:15:36 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-int	memcmp(const void *s1, const void *s2, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	unsigned char	*char_s1;
 	unsigned char	*char_s2;
