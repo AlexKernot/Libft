@@ -6,7 +6,7 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:19:36 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 16:33:24 by akernot          ###   ########.fr       */
+/*   Updated: 2023/02/27 09:08:55 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s);
 
-char	*strncat(char *dst, const char *src, size_t sz)
+char	*ft_strncat(char *dst, const char *src, size_t sz)
 {
 	size_t	i;
 	size_t	size;
