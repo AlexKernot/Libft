@@ -6,7 +6,7 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:56:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 15:15:36 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:45:12 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	i = 0;
 	char_s1 = (unsigned char *)s1;
 	char_s2 = (unsigned char *)s2;
-	while (i < n && (char_s1[i] != '\0' && char_s2[i] != '\0'))
+	while (i < n)
 	{
 		if (char_s1[i] == char_s2[i])
 		{
