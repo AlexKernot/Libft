@@ -22,6 +22,12 @@ char	*ft_strdup(const char *s)
 	size_t	size;
 
 	i = 0;
+	if (*s == 0)
+	{
+		new_string = (char *)malloc(sizeof(char));
+		*new_string = 0;
+		return (new_string);
+	}
 	size = ft_strlen(s);
 	new_string = (char *)malloc(size * sizeof(char) + 1);
 	if (new_string == NULL || size < 1)
