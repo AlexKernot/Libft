@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
+
 int	ft_isdigit(int c);
 
 static int	skip_whitespace(const char *nptr)
@@ -17,7 +19,7 @@ static int	skip_whitespace(const char *nptr)
 	int	i;
 
 	i = 0;
-	while (nptr[i] > 8 && nptr[i] < 14)
+	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
 		i++;
 	return (i);
 }
@@ -39,11 +41,18 @@ int	ft_atoi(const char *nptr)
 	}
 	while (ft_isdigit(nptr[i]))
 	{
-		converted += nptr[i] + '0';
+		converted += (long)nptr[i] - '0';
 		converted *= 10;
 		i++;
 	}
+	converted /= 10;
 	if (negative == 1)
 		converted *= -1;
 	return ((int)converted);
 }
+/*
+int main (void)
+{
+	printf("%d\n", ft_atoi("  100"));
+	return (0);
+}*/
