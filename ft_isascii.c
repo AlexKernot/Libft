@@ -6,7 +6,7 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:39:34 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/26 18:40:48 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:50:33 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@ int	ft_isascii(int c)
 	unsigned int	number;
 
 	number = (unsigned int)c;
-	if (number < 256)
+	if (number < 128)
 		return (1);
 	return (0);
 }
