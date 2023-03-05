@@ -12,33 +12,49 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+
+void	*ft_memcpy(void *dest, const void *src, size_t n);
+void	*ft_memalloc(size_t size);
+void	ft_memdel(void **ap);
 
 // Memmove copys n bytes of src into a temporary array then again into dest.
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	int		*temp_array;
-	int		*int_dest;
-	int		*int_src;
+	const unsigned char	*char_src;
+	unsigned char	*char_dest;
 
-	if (src == NULL || dest == NULL || n == 0)
-		return (NULL);
-	i = 0;
-	int_dest = (int *)dest;
-	int_src = (int *)src;
-	temp_array = (int *)malloc(sizeof(int) * n);
-	while (i < n && int_src[i] != 0)
+	char_src = (const unsigned char *)src;
+	char_dest = (unsigned char *)dest;
+	if (dest == src)
+		return (dest);
+	if (char_src < char_dest)
 	{
-		temp_array[i] = int_src[i];
-		i++;
+		i = n;
+		while (i > 0)
+		{
+			char_dest[i - 1] = char_src[i - 1];
+			i--;
+		}
+		return (dest);
 	}
 	i = 0;
 	while (i < n)
 	{
-		int_dest[i] = temp_array[i];
+		char_dest[i] = char_src[i];
 		i++;
 	}
-	int_dest[i] = 0;
-	free(temp_array);
 	return (dest);
 }
+/*
+int main(void)
+{
+	char *src = "this is a good nyancat !\r\n";
+	char dst2[0xF0];
+	int size = strlen(src);
+
+	ft_memmove(dst2, src, size);
+	printf("%s\n", dst2);
+	return (0);
+}*/
