@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+
 int	ft_strlen(char *string);
 
 int	ft_strequ(char const *s1, char const *s2)
@@ -18,6 +20,8 @@ int	ft_strequ(char const *s1, char const *s2)
 	int	size1;
 	int	size2;
 
+	if (s1 == NULL || s2 == NULL)
+		return (0);
 	i = 0;
 	size1 = ft_strlen((char *)s1);
 	size2 = ft_strlen((char *)s2);
