@@ -20,13 +20,18 @@ char	*ft_strmap(char const *s, char (*f)(char))
 	int		size;
 	int		i;
 
+	if (s == NULL || f == NULL)
+		return (NULL);
 	i = 0;
 	size = ft_strlen((char *)s);
-	new_string = (char *)malloc(size * sizeof(char));
+	new_string = (char *)malloc(size * sizeof(char) + 1);
+	if (!new_string)
+		return (NULL);
 	while (i < size)
 	{
 		new_string[i] = f((char)s[i]);
 		i++;
 	}
+	new_string[i] = 0;
 	return (new_string);
 }
