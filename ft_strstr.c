@@ -19,22 +19,21 @@ char	*ft_strstr(const char *haystack, const char *needle)
 	char	*match_start;
 
 	i = 0;
-	j = 0;
+	if (haystack == needle || *needle == 0)
+		return ((char *)haystack);
 	match_start = (char *)haystack;
 	while (haystack[i] != 0)
 	{
-		if (needle[j] == 0)
-			return (match_start);
-		if (haystack[i] == needle[j])
-		{
-			if (j == 0)
-				match_start = (char *)&haystack[i];
-			j++;
-		}
-		else
+		if (haystack[i] == *needle)
 		{
 			j = 0;
-			match_start = (char *)haystack;
+			match_start = (char *)&haystack[i];
+			while (haystack[i + j] == needle[j])
+			{
+				if (needle[j + 1] == 0)
+					return (match_start);
+				j++;
+			}
 		}
 		i++;
 	}
