@@ -11,22 +11,34 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
 
 size_t	ft_strlen(const char *s);
+char	*ft_strncat(char *dst, const char *src, size_t sz);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	size_t	i;
-	size_t	end;
+	size_t	end_dst;
+	size_t	len_src;
+	size_t	length;
 
-	end = ft_strlen(dst);
-	if (end > size || size == 0)
-		return (size);
-	while (i < size - 1 && src[i] != 0)
-	{
-		dst[end + i] = src[i];
-		i++;
-	}
-	dst[end + i] = 0;
-	return (i);
+	if (size == 0)
+		return (0);
+	end_dst = ft_strlen(dst);
+	len_src = ft_strlen(src);
+	if (size <= end_dst)
+		return (size + len_src);
+	length = size - end_dst - 1;
+	ft_strncat(dst, src, length);
+	dst[size - 1] = '\0';
+	return (end_dst + len_src);
 }
+/*
+int main(void)
+{
+	char *str = "the cake is a lie !";
+	char buff1[0xF00] = "there is no stars in the sky";
+	size_t max = strlen("the cake is a lie !") + 4;
+	size_t r1 = ft_strlcat(buff1, str, max);
+	printf("%s\n%ld\n", buff1, r1);
+}*/
