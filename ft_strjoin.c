@@ -22,10 +22,15 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	int		size1;
 	int		size2;
 
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
 	size1 = ft_strlen((char *)s1);
 	size2 = ft_strlen((char *)s2);
-	new_string = (char *)malloc(sizeof(char) * (size1 + size2));
+	new_string = (char *)malloc(sizeof(char) * (size1 + size2 + 1));
+	if (!new_string)
+		return (NULL);
 	ft_memcpy((void *)new_string, (void *)s1, size1);
-	ft_memcpy((void *)(&new_string[size1 - 1]), (void *)s2, size2);
+	ft_memcpy((void *)(&new_string[size1]), (void *)s2, size2);
+	new_string[size1 + size2] = 0;
 	return (new_string);
 }
