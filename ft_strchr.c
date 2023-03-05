@@ -6,7 +6,7 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 17:02:06 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 17:06:36 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:53:11 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	int	i;
 
 	i = 0;
-	while (s[i] != 0)
+	while (s[i] != 0 || c == 0)
 	{
 		if (s[i] == c)
 			return ((char *)&s[i]);
