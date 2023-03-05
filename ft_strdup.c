@@ -23,11 +23,14 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	size = ft_strlen(s);
-	new_string = (char *)malloc(size * sizeof(char));
-	while (i < size)
+	new_string = (char *)malloc(size * sizeof(char) + 1);
+	if (new_string == NULL || size < 1)
+		return (NULL);
+	while (i < size && s[i] != 0)
 	{
 		new_string[i] = s[i];
 		i++;
 	}
+	new_string[i] = 0;
 	return (new_string);
 }
