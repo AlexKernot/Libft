@@ -6,22 +6,24 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 14:01:20 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 14:13:52 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/04 22:34:02 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-void	*ft_memcpy(void *dest, void *src, size_t n)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
 	size_t	i;
-	int		*int_dest;
-	int		*int_src;
+	char		*int_dest;
+	const char		*int_src;
 
 	i = 0;
-	int_dest = (int *)dest;
-	int_src = (int *)src;
-	while (i < n)
+	if (dest == NULL && src == NULL)
+		return (NULL);
+	int_dest = (char *)dest;
+	int_src = (const char *)src;
+	while (i < n && int_src[i] != 0)
 	{
 		int_dest[i] = int_src[i];
 		i++;
