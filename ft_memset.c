@@ -11,6 +11,8 @@
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdio.h>
+#include <stdlib.h>
 
 void	*ft_memset(void *s, int c, size_t n)
 {
@@ -19,10 +21,19 @@ void	*ft_memset(void *s, int c, size_t n)
 
 	i = 0;
 	pointer = (unsigned char *)s;
-	while (i < n && pointer[i] != 0)
+	while (i < n)
 	{
 		pointer[i] = c;
 		i++;
 	}
 	return (s);
 }
+/*
+int main(void)
+{
+	void *string = malloc(15 * sizeof(unsigned char));
+	memset(string, '\0', 15);
+	ft_memset(string, 'A', 10);
+
+	printf("%s\n", (unsigned char *)string);
+}*/
