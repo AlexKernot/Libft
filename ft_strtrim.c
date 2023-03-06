@@ -6,12 +6,13 @@
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 19:27:23 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/05 19:27:23 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/06 21:06:15 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 int		ft_strlen(char *str);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
@@ -44,11 +45,21 @@ char	*ft_strtrim(const char *s, const char *sep)
 	while (check_seperator(s[start], sep))
 		start++;
 	end = length - 1;
-	while (check_seperator(s[start], sep))
+	while (check_seperator(s[end], sep) && end != start - 1)
 		end--;
-	length = end - start;
+	length = end - start + 1;
 	new_string = (char *)malloc(length * sizeof(char) + 1);
+	if (!new_string)
+		return (NULL);
 	ft_memcpy((void *) new_string, (void *)(&s[start]), length);
 	new_string[length] = 0;
 	return (new_string);
 }
+/*
+int	main(void)
+{
+	char *s1 = "  \t \t \n   \n\n\n\t";
+	char *s2 = "";
+	char *ret = ft_strtrim(s1, " \n\t");
+	printf("%s\n", ret);
+}*/
