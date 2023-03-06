@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:48:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/27 09:08:41 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/06 20:04:20 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <stdio.h>
 
 size_t	ft_strlen(const char *s);
-char	*ft_strncat(char *dst, const char *src, size_t sz);
+char	*ft_strncpy(char *dst, const char *src, size_t sz);
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	len_src;
 	size_t	length;
-
-	if (size == 0)
-		return (0);
+	
 	len_src = ft_strlen(src);
-	length = len_src - 1;
-	ft_strncat(dst, src, length);
-	dst[size - 1] = '\0';
+	if (size == 0)
+		return (len_src);
+	length = len_src;
+	if (length > size)
+		length = size - 1;
+	ft_strncpy(dst, src, length);
+	dst[length] = 0;
 	return (len_src);
 }
 /*
