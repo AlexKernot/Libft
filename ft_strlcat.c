@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:48:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/27 09:08:41 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/07 18:56:15 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	end_dst;
 	size_t	len_src;
 	size_t	length;
+	size_t	i;
 
+	i = 0;
 	if (size == 0)
 		return (0);
 	end_dst = ft_strlen(dst);
@@ -29,8 +31,12 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	if (size <= end_dst)
 		return (size + len_src);
 	length = size - end_dst - 1;
-	ft_strncat(dst, src, length);
-	dst[size - 1] = '\0';
+	while (i < length && src[i] != 0)
+	{
+		dst[end_dst + i] = src[i];
+		i++;
+	}
+	dst[end_dst + i] = 0;
 	return (end_dst + len_src);
 }
 /*
