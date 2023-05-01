@@ -1,27 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/23 13:41:16 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/11 23:22:35 by akernot          ###   ########.fr       */
+/*   Created: 2023/03/13 16:00:39 by akernot           #+#    #+#             */
+/*   Updated: 2023/03/13 16:00:39 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
+#include <stdlib.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	unsigned char		*pointer;
-	size_t				i;
+	t_list	*next_node;
 
-	pointer = (unsigned char *)s;
-	i = 0;
-	while (i < n)
+	if (lst == NULL || del == NULL)
+		return ;
+	while (*lst != NULL)
 	{
-		pointer[i] = 0;
-		i++;
+		next_node = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = next_node;
 	}
+	*lst = NULL;
 }

@@ -6,13 +6,12 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:03:12 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/26 18:19:44 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:27:24 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-
-int	ft_isdigit(int c);
+#include "libft.h"
 
 static int	skip_whitespace(const char *nptr)
 {
@@ -22,6 +21,16 @@ static int	skip_whitespace(const char *nptr)
 	while ((nptr[i] > 8 && nptr[i] < 14) || nptr[i] == ' ')
 		i++;
 	return (i);
+}
+
+static int	all_zeros(const char *nptr, int i)
+{
+	while (ft_isdigit(nptr[i]))
+	{
+		if (nptr[i] != 0)
+			return (0);
+	}
+	return (1);
 }
 
 int	ft_atoi(const char *nptr)
@@ -34,18 +43,19 @@ int	ft_atoi(const char *nptr)
 	i = skip_whitespace(nptr);
 	if (nptr[i] == '+')
 		i++;
-	if (nptr[i] == '-')
+	else if (nptr[i] == '-')
 	{
 		negative = 1;
 		i++;
 	}
+	if (all_zeros(nptr, i))
+		return (0);
 	while (ft_isdigit(nptr[i]))
 	{
-		converted += (long)nptr[i] - '0';
 		converted *= 10;
+		converted += (long)nptr[i] - '0';
 		i++;
 	}
-	converted /= 10;
 	if (negative == 1)
 		converted *= -1;
 	return ((int)converted);

@@ -6,16 +6,14 @@
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 19:27:23 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/06 21:06:15 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:33:07 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
-
-int		ft_strlen(char *str);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+#include "libft.h"
 
 static int	check_seperator(const char c, const char *sep)
 {

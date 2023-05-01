@@ -1,22 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 09:01:41 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/11 23:33:45 by akernot          ###   ########.fr       */
+/*   Created: 2023/03/07 20:45:05 by akernot           #+#    #+#             */
+/*   Updated: 2023/03/11 23:17:57 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <unistd.h>
 
-int	ft_toupper(int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	if (ft_isalpha(c) == 0)
-		return (c);
-	if (c < 96)
-		return (c);
-	return (c - 32);
+	write(fd, &c, 1);
 }

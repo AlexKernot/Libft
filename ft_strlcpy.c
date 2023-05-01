@@ -6,29 +6,33 @@
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:48:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/06 20:04:20 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/10 19:24:15 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
-
-size_t	ft_strlen(const char *s);
-char	*ft_strncpy(char *dst, const char *src, size_t sz);
+#include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	len_src;
 	size_t	length;
-	
+	size_t	i;
+
 	len_src = ft_strlen(src);
 	if (size == 0)
 		return (len_src);
 	length = len_src;
-	if (length > size)
+	if (length > size - 1)
 		length = size - 1;
-	ft_strncpy(dst, src, length);
-	dst[length] = 0;
+	i = 0;
+	while (i < length && src[i] != 0)
+	{
+		dst[i] = src[i];
+		i++;
+	}
+	dst[i] = 0;
 	return (len_src);
 }
 /*

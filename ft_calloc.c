@@ -6,27 +6,26 @@
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 19:56:40 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/05 19:56:40 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:25:54 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include "libft.h"
 
-void	ft_bzero(void *s, size_t n);
-void	*ft_memset(void *s, int c, size_t n);
-
-void    *ft_calloc(size_t nmemb, size_t size)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-    void    *ptr;
-    ptr = malloc(nmemb * size);
-    if (!ptr)
-    {
-        return (NULL);
-    }
-    ft_memset(ptr, 0, nmemb * size);
-    return (ptr);
+	void	*ptr;
+
+	ptr = malloc(nmemb * size);
+	if (!ptr)
+	{
+		return (NULL);
+	}
+	ft_memset(ptr, 0, nmemb * size);
+	return (ptr);
 }
 /*
 int main(void)

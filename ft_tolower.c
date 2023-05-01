@@ -6,11 +6,11 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 09:01:41 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/27 09:07:13 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:33:30 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
+#include "libft.h"
 
 int	ft_tolower(int c)
 {

@@ -6,14 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 18:31:20 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/26 18:34:22 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:36:02 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(int c);
-int	ft_isdigit(int c);
+#include "libft.h"
 
-int	ft_isalnum(int c)
+int	ft_isalnum(char c)
 {
 	if (ft_isalpha(c))
 		return (1);

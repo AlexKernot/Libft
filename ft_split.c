@@ -6,28 +6,27 @@
 /*   By: akernot <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 14:40:22 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/09 16:45:08 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 19:08:05 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
+#include "libft.h"
 
-int			ft_strlen(const char *string);
-
-static char	*allocate_words(const char *s, char c, int i)
+static int	get_length(const char *s, char c, int j)
 {
-	int		length;
-	char	*pointer;
+	int	i;
 
-	length = 0;
-	while (s[i] != c && s[i] != 0)
+	i = 0;
+	while (s[j] != c && s[j] != 0)
 	{
 		i++;
-		length++;
+		j++;
 	}
-	pointer = (char *)malloc(sizeof(char) * length);
-	return (pointer);
+	return (i);
+}
 
 static int	get_words(const char *s, char c)
 {
@@ -35,42 +34,80 @@ static int	get_words(const char *s, char c)
 	int	words;
 
 	i = 0;
-	words = 0;
+	words = 1;
+	if (s[i] == c)
+		while (s[i] == c)
+			i++;
 	while (s[i] != 0)
 	{
 		if (s[i] == c && i > 0)
-			if (s[i - 1] != c)
+			if (s[i - 1] != c && i != 0)
 				words++;
 		i++;
 	}
+	if (s[i - 1] == c)
+		words--;
 	return (words);
+}
+
+static int	copy_to_array(const char *string, char **array, char sep, int words)
+{
+	int	i;
+	int	j;
+	int	word_length;
+
+	i = 0;
+	j = 0;
+	while (i < words && string[j] != 0)
+	{
+		while (string[j] == sep && string[j] != 0)
+			j++;
+		word_length = get_length(string, sep, j);
+		array[i] = ft_substr(string, j, word_length);
+		if (array[i] == NULL)
+			return (0);
+		j += word_length;
+		i++;
+	}
+	array[i] = NULL;
+	return (1);
 }
 
 char	**ft_split(const char *s, char c)
 {
-	int		i;
-	int		j;
 	int		words;
 	char	**array;
 
-	words = get_words(s, c);
-	array = (char **)malloc(sizeof(int *) * words);
-	i = 0;
-	j = 0;
-	while (s[i] != 0)
+	if (s == NULL)
+		return (NULL);
+	if (c == 0 && *s == 0)
 	{
-		if (s[i] == c)
-		{
-			skip_split(s, &i);
-			words++;
-			j = 0;
-			array[words] = allocate_word(s, i);
-			continue ;
-		}
-		array[words][j] = s[i];
-		j++;
-		i++;
+		array = (char **)malloc(sizeof(char **));
+		array[0] = NULL;
+		return (array);
 	}
-	array[i] = NULL;
+	words = get_words(s, c);
+	array = (char **)malloc(sizeof(int *) * (words + 1));
+	if (!array)
+		return (NULL);
+	if (!copy_to_array(s, array, c, words))
+		return (NULL);
 	return (array);
 }
+/*
+int	main(void)
+{
+ 	char *s = "split  ||this|for|me|||||!|";
+ 	int i = 0;
+ 	char **result = ft_split("xxxxxxxxhello!", 'x');
+
+ 	while (result[i] != NULL)
+ 	{
+ 		printf("%s\n", result[i]);
+ 		free(result[i]);
+ 		i++;
+ 	}
+	printf("%s\n", result[i]);
+ 	free(result[i]);
+ 	free(result);
+}*/

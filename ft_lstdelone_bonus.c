@@ -1,22 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 20:46:29 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/11 23:23:17 by akernot          ###   ########.fr       */
+/*   Created: 2023/03/13 11:34:11 by akernot           #+#    #+#             */
+/*   Updated: 2023/03/13 11:34:11 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "libft.h"
-
-void	ft_putendl_fd(char *s, int fd)
+/*
+static void delete(void *data)
 {
-	if (s == 0)
+	int	i = 0;
+	char *pointer;
+
+	pointer = (char *)data;
+	while (pointer[i] != 0)
+	{
+		pointer[i] = 0;
+		i++;
+	}
+	printf("We are here \n");
+}*/
+
+void	ft_lstdelone(t_list *lst, void (*del)(void *))
+{
+	if (lst == NULL || del == NULL)
 		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	del(lst->content);
+	free(lst);
 }
+/*
+int	main(void)
+{
+	t_list *l = ft_lstnew(malloc(10));
+	ft_lstdelone(l, delete);
+}*/

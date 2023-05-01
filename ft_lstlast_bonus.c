@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
+/*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/27 09:01:41 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/11 23:33:45 by akernot          ###   ########.fr       */
+/*   Created: 2023/03/12 19:27:21 by akernot           #+#    #+#             */
+/*   Updated: 2023/03/12 19:27:21 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
 #include "libft.h"
 
-int	ft_toupper(int c)
+t_list	*ft_lstlast(t_list *lst)
 {
-	if (ft_isalpha(c) == 0)
-		return (c);
-	if (c < 96)
-		return (c);
-	return (c - 32);
+	if (lst == NULL)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

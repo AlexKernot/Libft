@@ -6,15 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 21:02:58 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/04 21:21:36 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:29:19 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-
-int		ft_strlen(char *string);
-void	*ft_memcpy(void *dest, void *src, size_t n);
+#include "libft.h"
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

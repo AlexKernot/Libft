@@ -6,15 +6,13 @@
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 16:48:14 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/07 18:56:15 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:29:31 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include <stdio.h>
-
-size_t	ft_strlen(const char *s);
-char	*ft_strncat(char *dst, const char *src, size_t sz);
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
@@ -24,8 +22,6 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 
 	i = 0;
-	if (size == 0)
-		return (0);
 	end_dst = ft_strlen(dst);
 	len_src = ft_strlen(src);
 	if (size <= end_dst)

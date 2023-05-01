@@ -6,14 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/04 16:01:01 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/04 16:23:24 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 23:30:04 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-
-int	ft_strlen(char *str);
+#include "libft.h"
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

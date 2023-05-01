@@ -6,14 +6,13 @@
 /*   By: akernot <akernot@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 15:13:34 by akernot           #+#    #+#             */
-/*   Updated: 2023/02/23 15:21:08 by akernot          ###   ########.fr       */
+/*   Updated: 2023/03/11 15:04:34 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
-
-size_t	ft_strlen(const char *s);
+#include "libft.h"
 
 char	*ft_strdup(const char *s)
 {
@@ -23,11 +22,7 @@ char	*ft_strdup(const char *s)
 
 	i = 0;
 	if (*s == 0)
-	{
-		new_string = (char *)malloc(sizeof(char));
-		*new_string = 0;
-		return (new_string);
-	}
+		return (ft_calloc(1, 1));
 	size = ft_strlen(s);
 	new_string = (char *)malloc(size * sizeof(char) + 1);
 	if (new_string == NULL || size < 1)

@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akernot <akernot@student.42.ft>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/07 20:46:29 by akernot           #+#    #+#             */
-/*   Updated: 2023/03/11 23:23:17 by akernot          ###   ########.fr       */
+/*   Created: 2023/03/12 19:30:13 by akernot           #+#    #+#             */
+/*   Updated: 2023/03/12 19:30:13 by akernot          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (s == 0)
+	t_list	*end;
+
+	if (new == NULL || lst == NULL)
 		return ;
-	ft_putstr_fd(s, fd);
-	ft_putchar_fd('\n', fd);
+	if (*lst == NULL)
+	{
+		*lst = new;
+		return ;
+	}
+	end = ft_lstlast(*lst);
+	end->next = new;
 }
+/*
+int main(void)
+{
+	t_list *l = NULL;
+	t_list *n = ft_lstnew(ft_strdup("OK"));
+	ft_lstadd_back(&l, n);
+}*/
